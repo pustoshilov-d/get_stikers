@@ -3,11 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="2b7f8d3d-414d-49d1-91dd-3d2b1ed04cb1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/manifest.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package.json" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -27,6 +35,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../stikers_testing3" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="D:\Programing\WebStorm 2019.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -46,7 +55,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1587920024505</updated>
-      <workItem from="1587920029296" duration="16756000" />
+      <workItem from="1587920029296" duration="17270000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1587921638180</created>
@@ -195,7 +204,21 @@
       <option name="project" value="LOCAL" />
       <updated>1587939041971</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="init">
+      <created>1587939288187</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1587939288187</updated>
+    </task>
+    <task id="LOCAL-00023" summary="init">
+      <created>1587939307620</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1587939307620</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,10 +230,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="377" y="124" key="CommitChangelistDialog2" timestamp="1587939287603">
+    <state x="1170" y="308" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587939465549">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="377" y="124" key="CommitChangelistDialog2/0.40.1920.1040@0.40.1920.1040" timestamp="1587939287603" />
+    <state x="1170" y="308" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.40.1920.1040@0.40.1920.1040" timestamp="1587939465549" />
+    <state x="377" y="124" key="CommitChangelistDialog2" timestamp="1587939306786">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="377" y="124" key="CommitChangelistDialog2/0.40.1920.1040@0.40.1920.1040" timestamp="1587939306786" />
     <state x="1220" y="317" key="FileChooserDialogImpl" timestamp="1587935414018">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
