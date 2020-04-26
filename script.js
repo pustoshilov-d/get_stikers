@@ -8,6 +8,7 @@ function get_user() {
             status.innerText = "Попытка получить пользователя";
             console.log(res)
         });
+        VK.callMethod("showPaymentBox", 1);
     }
     catch (e) {
         console.log('ошибка ёпта', e)
@@ -65,7 +66,12 @@ function  initApi() {
         VK.init( function() {
             // API initialization succeeded
             // Your code here
+            console.log(typeof VK.callMethod != 'undefined');
             VK.callMethod("showSettingsBox", 131072);
+            VK.api("users.get", {"user_ids": "210700286", "v":"5.122"}, (res) => {
+                status.innerText = "Попытка получить пользователя";
+                console.log(res)
+            });
             status.innerText = "есть коннект";
             console.log("есть коннект");
 
