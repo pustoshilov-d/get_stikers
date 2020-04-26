@@ -21,7 +21,21 @@ function get_access() {
         let status = document.getElementById("status");
         status.innerText = "Попытка получить аксес";
 
-        VK.callMethod("showSettingsBox", 131072);
+        vkBridge.send('VKWebAppInit',{});
+
+        vkBridge.subscribe((e) => console.log(e));
+
+        vkBridge
+            .send('VKWebAppGetEmail')
+            .then(data => {
+                console.log('email',data.email);
+            })
+            .catch(error => {
+                console.log('email нет');
+            });
+
+        console.log('show ',VK.callMethod("showSettingsBox", 131072));
+
         VK.addCallback('onSettingsChanged', function f(location) {
             console.log('разрешения выданы');
         })
@@ -53,7 +67,7 @@ function  initApi() {
         console.log("страница загружена");
         VK.init( function() {
 
-            vkBridge.send('VKWebAppInit');
+            vkBridge.send('VKWebAppInit',{});
             VK.callMethod("showSettingsBox", 262144);
 
             status.innerText = "есть коннект";
