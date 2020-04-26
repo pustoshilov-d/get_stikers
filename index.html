@@ -9,15 +9,15 @@
 
         <link rel="stylesheet" href="style.css">
         <link rel="manifest" href="/manifest.json">
-        <script src="script.js"></script>
         <script src="https://vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script>
+        <script src="script.js"></script>
 
         <title>Hi</title>
     </head>
 
-    <body>
+    <body onload="initApi()">
 
-        <h2>Hello1</h2>
+        <h2>Hello2</h2>
         <span id="status">Пока ничего</span>
 
         <button onclick="getStikers()">Стикеры</button>
