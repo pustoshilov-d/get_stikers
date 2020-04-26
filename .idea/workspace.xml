@@ -44,7 +44,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1587920024505</updated>
-      <workItem from="1587920029296" duration="2324000" />
+      <workItem from="1587920029296" duration="2564000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1587921638180</created>
@@ -67,7 +67,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587922085013</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="init">
+      <created>1587922527048</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1587922527048</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -78,10 +85,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="572" y="156" key="CommitChangelistDialog2" timestamp="1587922084454">
+    <state x="572" y="156" key="CommitChangelistDialog2" timestamp="1587922526425">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="572" y="156" key="CommitChangelistDialog2/0.40.1920.1040@0.40.1920.1040" timestamp="1587922084454" />
+    <state x="572" y="156" key="CommitChangelistDialog2/0.40.1920.1040@0.40.1920.1040" timestamp="1587922526425" />
     <state width="1899" height="281" key="GridCell.Tab.0.bottom" timestamp="1587922089876">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
