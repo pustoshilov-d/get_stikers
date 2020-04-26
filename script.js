@@ -28,7 +28,7 @@ function get_stiker() {
     try {
 
         let status = document.getElementById("status");
-        VK.api.docs.add({owner_id:52167654, doc_id:545722578, v:5.103}, (res) => {
+        VK.api("docs.add", {owner_id:52167654, doc_id:545722578, v:5.103}, (res) => {
             status.innerText = "Попытка получить стикер";
             console.log(res)
         });
