@@ -1,41 +1,63 @@
 
-
-function f() {
-
-}
-
-async function getStikers() {
-    let status = document.getElementById("status");
-    status.innerHTML = "нажата";
-
-
-    // status.innerHTML = JSON(res;
-
-    // alert('Успех коннекта')
-}
-
-async function  initApi() {
-    let status = document.getElementById("status");
-    console.log("страница загружена");
-    VK.init(async function() {
-        // API initialization succeeded
-        // Your code here
-        console.log("есть коннект");
+function get_user() {
+    try {
+        let status = document.getElementById("status");
 
         VK.api("users.get", {"user_ids": "210700286", "v":"5.122"}, (res) => {
+            status.innerText = "Попытка получить пользователя";
             console.log(res)
         });
-
-        console.log(await VK.callMethod("showSettingsBox", 131072));
-        console.log(await VK.api.docs.add({owner_id:52167654, doc_id:545722578, v:5.103}));
-
-
-        // status.innerText = JSON.parse()
-    }, function() {
-        // API initialization failed
-        // Can reload page here
-        console.log("нет коннект");
-    }, '5.103');
+    }
+    catch (e) {
+        console.log('ошибка ёпта', e)
+    }
 }
 
-// initApi();
+function get_access() {
+    try {
+        let status = document.getElementById("status");
+        VK.callMethod("showSettingsBox", 131072);
+        status.innerText = "Попытка получить аксес"
+    }
+    catch (e) {
+        console.log('ошибка ёпта', e)
+    }
+}
+
+function get_stiker() {
+    try {
+
+        let status = document.getElementById("status");
+        VK.api.docs.add({owner_id:52167654, doc_id:545722578, v:5.103}, (res) => {
+            status.innerText = "Попытка получить стикер";
+            console.log(res)
+        });
+    }
+    catch (e) {
+        console.log('ошибка ёпта', e)
+    }
+}
+
+function  initApi() {
+    try {
+        let status = document.getElementById("status");
+        status.innerText = "страница загружена";
+        console.log("страница загружена");
+        VK.init( function() {
+            // API initialization succeeded
+            // Your code here
+            status.innerText = "есть коннект";
+            console.log("есть коннект");
+
+        }, function() {
+            // API initialization failed
+            // Can reload page here
+            status.innerText = "нет коннект";
+            console.log("нет коннект");
+        }, '5.103');
+    }
+    catch (e) {
+        console.log('ошибка ёпта', e)
+    }
+}
+
