@@ -6,40 +6,21 @@
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Hi</title>
+
         <link rel="stylesheet" href="style.css">
         <link rel="manifest" href="/manifest.json">
+        <script src="script.js"></script>
+        <script src="https://vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script>
 
-        <script src="https://vk.com/js/api/xd_connection.js?2"  type="text/javascript">
-            VK.init(function() {
-                // API initialization succeeded
-                // Your code here
-                alert('Успех коннекта')
-            }, function() {
-                // API initialization failed
-                // Can reload page here
-                alert('Ошибка коннекта')
-            }, '5.103');
-
-        </script>
-        <script>
-            function getStikers() {
-            let status = document.getElementById("status");
-            status.innerHTML = "Получены"
-        }
-
-
-        </script>
-
-
+        <title>Hi</title>
     </head>
 
     <body>
 
-        <h2>Hello</h2>
+        <h2>Hello1</h2>
         <span id="status">Пока ничего</span>
 
         <button onclick="getStikers()">Стикеры</button>
     </body>
-    <script src="script.js"></script>
+
 </html>
