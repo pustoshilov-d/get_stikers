@@ -1,4 +1,4 @@
-import bridge from '@vkontakte/vk-bridge'
+
 
 function get_user() {
     try {
@@ -19,8 +19,10 @@ function get_access() {
 
         let status = document.getElementById("status");
         status.innerText = "Попытка получить аксес";
-        bridge.send("VKWebAppInit", {});
-        bridge.subscribe((e) => console.log(e));
+
+     //   const bridge = require('@vkontakte/vk-bridge');
+       // bridge.send("VKWebAppInit", {});
+        //bridge.subscribe((e) => console.log(e));
 
         VK.callMethod("showInstallBox");
         VK.addCallback('onApplicationAdded', function f(location){
