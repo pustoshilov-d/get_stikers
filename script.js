@@ -1,3 +1,4 @@
+import bridge from '@vkontakte/vk-bridge'
 
 function get_user() {
     try {
@@ -15,10 +16,25 @@ function get_user() {
 
 function get_access() {
     try {
+
         let status = document.getElementById("status");
-        status.innerText = "Попытка получить аксес"
+        status.innerText = "Попытка получить аксес";
+        bridge.send("VKWebAppInit", {});
+        bridge.subscribe((e) => console.log(e));
+
         VK.callMethod("showInstallBox");
+        VK.addCallback('onApplicationAdded', function f(location){
+            console.log('приложение установлено');
+        });
+
         VK.callMethod("showSettingsBox", 131072);
+        VK.addCallback('onSettingsChanged', function f(location){
+            console.log('разрешения выданы');
+        });
+        VK.addCallback('onSettingsCancel', function f(location){
+            console.log('разрешения не выданы');
+        });
+
     }
     catch (e) {
         console.log('ошибка ёпта', e)

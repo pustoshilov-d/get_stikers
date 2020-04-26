@@ -6,5 +6,7 @@
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@vkontakte/vk-bridge": "^2.1.8"
+  }
 }
