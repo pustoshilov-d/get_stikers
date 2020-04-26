@@ -65,6 +65,7 @@ function  initApi() {
         VK.init( function() {
             // API initialization succeeded
             // Your code here
+            VK.callMethod("showSettingsBox", 131072);
             status.innerText = "есть коннект";
             console.log("есть коннект");
 
