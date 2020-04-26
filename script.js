@@ -7,8 +7,9 @@ function f() {
 async function getStikers() {
     let status = document.getElementById("status");
     status.innerHTML = "нажата";
-    res = await VK.api("users.get", {"user_ids": "210700286", "v":"5.122"});
-    status.innerHTML = JSON.parse(res.response);
+    let res, err = await VK.api("users.get", {"user_ids": "210700286", "v":"5.122"});
+    console.log(res,err)
+    // status.innerHTML = JSON(res;
 
     // alert('Успех коннекта')
 }
