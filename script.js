@@ -16,8 +16,9 @@ function get_user() {
 function get_access() {
     try {
         let status = document.getElementById("status");
-        VK.callMethod("showSettingsBox", 131072);
         status.innerText = "Попытка получить аксес"
+        VK.callMethod("showInstallBox");
+        VK.callMethod("showSettingsBox", 131072);
     }
     catch (e) {
         console.log('ошибка ёпта', e)

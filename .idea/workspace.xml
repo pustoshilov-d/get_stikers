@@ -4,6 +4,7 @@
     <list default="true" id="2b7f8d3d-414d-49d1-91dd-3d2b1ed04cb1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +45,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1587920024505</updated>
-      <workItem from="1587920029296" duration="11624000" />
+      <workItem from="1587920029296" duration="11872000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1587921638180</created>
@@ -158,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587931932651</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="init">
+      <created>1587932104707</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1587932104707</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,10 +178,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="377" y="124" key="CommitChangelistDialog2" timestamp="1587931931422">
+    <state x="377" y="124" key="CommitChangelistDialog2" timestamp="1587932104045">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="377" y="124" key="CommitChangelistDialog2/0.40.1920.1040@0.40.1920.1040" timestamp="1587931931422" />
+    <state x="377" y="124" key="CommitChangelistDialog2/0.40.1920.1040@0.40.1920.1040" timestamp="1587932104045" />
     <state width="1899" height="281" key="GridCell.Tab.0.bottom" timestamp="1587922089876">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
