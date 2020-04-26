@@ -25,18 +25,20 @@ function get_access() {
        // bridge.send("VKWebAppInit", {});
         //bridge.subscribe((e) => console.log(e));
 
-        VK.callMethod("showInstallBox");
-        VK.addCallback('onApplicationAdded', function f(location){
-            console.log('приложение установлено');
-        });
+        // VK.callMethod("showInstallBox");
+        // VK.addCallback('onApplicationAdded', function f(location){
+        //     console.log('приложение установлено');
+        // });
 
-        VK.callMethod("showSettingsBox", 131072);
-        VK.addCallback('onSettingsChanged', function f(location){
-            console.log('разрешения выданы');
-        });
-        VK.addCallback('onSettingsCancel', function f(location){
-            console.log('разрешения не выданы');
-        });
+        // VK.callMethod("showSettingsBox", 131072);
+
+        // VK.addCallback('onSettingsChanged', function f(location){
+        //     console.log('разрешения выданы');
+        // });
+        // VK.addCallback('onSettingsCancel', function f(location){
+        //     console.log('разрешения не выданы');
+        // });
+        VK.callMethod("showInviteBox");
 
     }
     catch (e) {
@@ -66,12 +68,9 @@ function  initApi() {
         VK.init( function() {
             // API initialization succeeded
             // Your code here
-            console.log(typeof VK.callMethod != 'undefined');
-            VK.callMethod("showSettingsBox", 131072);
-            VK.api("users.get", {"user_ids": "210700286", "v":"5.122"}, (res) => {
-                status.innerText = "Попытка получить пользователя";
-                console.log(res)
-            });
+
+            VK.callMethod("showSettingsBox", 262144);
+
             status.innerText = "есть коннект";
             console.log("есть коннект");
 
