@@ -10,6 +10,19 @@
         <link rel="stylesheet" href="style.css">
         <link rel="manifest" href="/manifest.json">
 
+        <script src="https://vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script>
+        <script type="text/javascript">
+            VK.init(function() {
+                // API initialization succeeded
+                // Your code here
+                alert('Успех коннекта')
+            }, function() {
+                // API initialization failed
+                // Can reload page here
+                alert('Ошибка коннекта')
+            }, '5.103');
+        </script>
+
     </head>
 
     <body>
