@@ -27,57 +27,56 @@
 //
 //     });
 
-
-let token = "";
-let captcha_sid = null;
-
-function capcha_enter() {
-    try{
-        let capcha = document.getElementById("capcha");
-        let input = document.getElementById("input");
-        capcha.setAttribute("hidden","hidden");
-        get_stikers(token,input.value);
-    }
-    catch (e) {
-        console.log(e)
-    }
-}
-
-function get_stikers(token, captcha_key) {
-    try {
-        vkBridge.send("VKWebAppCallAPIMethod", {
-            "method": "execute.getStikers",
-            "params": {"v": 5.103, "access_token": token},
-            "captcha_key": captcha_key
-        })
-            .then(res => {
-                console.log('пак 1', res);
-            });
-        vkBridge.send("VKWebAppCallAPIMethod", {
-            "method": "execute.getStikers_two",
-            "params": {"v": 5.103, "access_token": token},
-            "captcha_key": captcha_key
-        })
-            .then(res => {
-                console.log('пак 2', res);
-            });
-    }
-    catch (e) {
-        console.log(e);
-        //14
-        let captcha_img = "";
-        captcha_sid = "";
-        let status = document.getElementById("status");
-        status.innerText = "Введи капчу";
-        capcha.removeAttribute("hidden");
-        let img = document.getElementById("img");
-
-        img.setAttribute("scr",captcha_img);
-
+//
+// let token = "";
+// let captcha_sid = null;
+//
+// function capcha_enter() {
+//     try{
+//         let capcha = document.getElementById("capcha");
+//         let input = document.getElementById("input");
+//         capcha.setAttribute("hidden","hidden");
+//         get_stikers(token,input.value);
+//     }
+//     catch (e) {
+//         console.log(e)
+//     }
+// }
+//
+// function get_stikers(token, captcha_key) {
+//     try {
+//         vkBridge.send("VKWebAppCallAPIMethod", {
+//             "method": "execute.getStikers",
+//             "params": {"v": 5.103, "access_token": token},
+//             "captcha_key": captcha_key
+//         })
+//             .then(res => {
+//                 console.log('пак 1', res);
+//             });
+//         vkBridge.send("VKWebAppCallAPIMethod", {
+//             "method": "execute.getStikers_two",
+//             "params": {"v": 5.103, "access_token": token},
+//             "captcha_key": captcha_key
+//         })
+//             .then(res => {
+//                 console.log('пак 2', res);
+//             });
+//     }
+//     catch (e) {
+//         console.log(e);
+//         //14
+//         let captcha_img = "";
+//         captcha_sid = "";
+//         let status = document.getElementById("status");
+//         status.innerText = "Введи капчу";
+//         capcha.removeAttribute("hidden");
+//         let img = document.getElementById("img");
+//
+//         img.setAttribute("scr",captcha_img);
+//
 
 /////////////
-    }
-}
+
 //
 //
 // function  initApi() {
@@ -111,3 +110,15 @@ function get_stikers(token, captcha_key) {
 //     }
 // }
 //
+let captcha_key = null;
+let captcha_sid = null;
+
+let code1 = "var list1 = [545722298, 545722301, 545722340, 545722343, 545722345, 545722351, 545722410, 545722413, 545722415, 545722420, 545722422, 545722425, 545722427, 545722428, 545722432, 545722434, 545722441];\n" +
+    "var i = 0;\n" +
+    "while (i != list1.length-1) {\n" +
+    "    API.docs.add({owner_id:52167654, doc_id:list1[i]});\n" +
+    "    i = i + 1;\n" +
+    "};\n" +
+    "return \"Пачка 1 добавлена\";";
+
+console.log(code1);

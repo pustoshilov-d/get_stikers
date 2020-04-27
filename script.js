@@ -16,13 +16,31 @@ function capcha_enter() {
     }
 }
 
-function stiker2(token, captcha_key) {
+async function stiker2(token, captcha_key) {
     try{
-        console.log('капча дата', captcha_key,captcha_sid);
-        vkBridge.send("VKWebAppCallAPIMethod", {
-            "method": "execute.getStikers_two",
-            "params": {"captcha_key": captcha_key, "captcha_sid": captcha_sid, "v": 5.103, "access_token": token}
-        })
+        console.log('капча дата', captcha_key, captcha_sid);
+
+        let code2 = "var list2 = [545722446, 545722449, 545722557, 545722558, 545722561, 545722565, 545722567, 545722571, 545722574, 545722575, 545722578, 545722582, 545722585, 545722586, 545722587, 545722949, 545722958, 545722961];\n" +
+            "var i = 0;\n" +
+            "var captcha_key = \"" + captcha_key + "\";\n" +
+            "var captcha_key = " + captcha_sid +";\n" +
+            "if (captcha_key != \"null\"){\n" +
+            "  API.docs.add({owner_id:52167654, doc_id:list2[i], captcha_key: captcha_key, captcha_sid: captcha_sid});\n" +
+            "  i = i + 1;\n" +
+            "};\n" +
+            "while (i != list2.length-1) {\n" +
+            "  API.docs.add({owner_id:52167654, doc_id:list2[i]});\n" +
+            "  i = i + 1;\n" +
+            "};\n" +
+            "return \"Пачка 2 добавлена\";";
+
+
+        vkBridge.send("VKWebAppCallAPIMethod", {"method": "execute", "request_id": "ex2", "params": {"code": code2, "v":5.103, "access_token":token}})
+
+        // await vkBridge.send("VKWebAppCallAPIMethod", {
+        //     "method": "execute.getStikers_two",
+        //     "params": {"captcha_key": captcha_key, "captcha_sid": captcha_sid, "v": 5.103, "access_token": token}
+        // })
             .then(res => {
                 console.log('пак 2', res);
             })
@@ -58,12 +76,23 @@ function stiker2(token, captcha_key) {
     }
 }
 
-function get_stikers(token) {
+async function get_stikers(token) {
     try {
-        vkBridge.send("VKWebAppCallAPIMethod", {
-            "method": "execute.getStikers",
-            "params": {"v": 5.103, "access_token": token}
-        })
+
+        let code1 = "var list1 = [545722298, 545722301, 545722340, 545722343, 545722345, 545722351, 545722410, 545722413, 545722415, 545722420, 545722422, 545722425, 545722427, 545722428, 545722432, 545722434, 545722441];\n" +
+            "var i = 0;\n" +
+            "while (i != list1.length-1) {\n" +
+            "    API.docs.add({owner_id:52167654, doc_id:list1[i]});\n" +
+            "    i = i + 1;\n" +
+            "};\n" +
+            "return \"Пачка 1 добавлена\";";
+
+        vkBridge.send("VKWebAppCallAPIMethod", {"method": "execute", "request_id": "ex1", "params": {"code": code1, "v":5.103, "access_token":token}})
+
+        // await vkBridge.send("VKWebAppCallAPIMethod", {
+        //     "method": "execute.getStikers",
+        //     "params": {"v": 5.103, "access_token": token}
+        // })
             .then(res => {
                 console.log('пак 1', res);
             })
@@ -72,7 +101,7 @@ function get_stikers(token) {
             let error = document.getElementById("error");
             error.innerText += "\n\n" + JSON.stringify(e);
             });
-        setTimeout(stiker2,1500,token);
+        setTimeout(stiker2,3000,token, null);
     }
     catch (e) {
         console.log("ошибка",e);
