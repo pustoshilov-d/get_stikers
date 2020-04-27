@@ -6,7 +6,7 @@ function capcha_enter() {
         let capcha = document.getElementById("capcha");
         let input = document.getElementById("input");
         capcha.setAttribute("hidden", "true");
-        get_stikers(token,input.value);
+        stiker2(token,input.value);
         input.value = "";
     }
     catch (e) {
@@ -16,11 +16,11 @@ function capcha_enter() {
     }
 }
 
-function stiker2(token) {
-
+function stiker2(token, captcha_key) {
+    console.log('капча дата', captcha_key,captcha_sid);
     vkBridge.send("VKWebAppCallAPIMethod", {
         "method": "execute.getStikers_two",
-        "params": {"v": 5.103, "access_token": token}
+        "params": {"captcha_key": captcha_key, "captcha_sid": captcha_sid, "v": 5.103, "access_token": token}
     })
         .then(res => {
             console.log('пак 2', res);
@@ -44,19 +44,20 @@ function stiker2(token) {
                 let img = document.getElementById("img");
                 img.setAttribute("src",captcha_img);
             }
-            // else {
-            //     let status = document.getElementById("status");
-            //     status.innerText = "Необрабатываемая ошибка :( " + e;
-            // }
+
         });
+
+    let status = document.getElementById("status");
+    status.innerText = "Стикеры загружены. Проверяй";
+    link.removeAttribute("hidden");
+    link.innerText = "свои документы";
 }
 
-function get_stikers(token, captcha_key) {
+function get_stikers(token) {
     try {
-        console.log('капча дата', captcha_key,captcha_sid);
         vkBridge.send("VKWebAppCallAPIMethod", {
             "method": "execute.getStikers",
-            "params": {"captcha_key": captcha_key, "captcha_sid": captcha_sid, "v": 5.103, "access_token": token}
+            "params": {"v": 5.103, "access_token": token}
         })
             .then(res => {
                 console.log('пак 1', res);
@@ -67,11 +68,6 @@ function get_stikers(token, captcha_key) {
             error.innerText += "\n\n" + JSON.stringify(e);
             });
         setTimeout(stiker2,1500,token);
-
-        let status = document.getElementById("status");
-        status.innerText = "Стикеры загружены. Проверяй";
-        link.removeAttribute("hidden");
-        link.innerText = "свои документы";
     }
     catch (e) {
         console.log("ошибка",e);
