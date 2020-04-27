@@ -24,14 +24,18 @@ function stiker2(token) {
         .catch(e =>{
             console.log("ошибка ебаная 2",e);
             if (e.error_data.error_reason.error_code === 14) {
+                let link = document.getElementById("link");
+                link.setAttribute("hidden","true");
 
                 let captcha_img = e.error_data.error_reason.captcha_img;
                 captcha_sid = e.error_data.error_reason.captcha_sid;
+
                 let status = document.getElementById("status");
                 status.innerText = "Введи капчу";
                 capcha.removeAttribute("hidden");
+
                 let img = document.getElementById("img");
-                img.setAttribute("scr",captcha_img);
+                img.setAttribute("src",captcha_img);
             }
             else {
                 let status = document.getElementById("status");
@@ -51,24 +55,15 @@ function get_stikers(token, captcha_key) {
         })
             .then(res => {
                 console.log('пак 1', res);
+            })
+            .catch(e => {
+            console.log("ошибка",e);
             });
-
         setTimeout(stiker2,1500,token);
         
     }
     catch (e) {
-
-        console.log("ошибка ебаная",e);
-        //14
-        let captcha_img = "";
-        captcha_sid = "";
-        let status = document.getElementById("status");
-        status.innerText = "Введи капчу";
-        capcha.removeAttribute("hidden");
-        let img = document.getElementById("img");
-
-        img.setAttribute("scr",captcha_img);
-
+        console.log("ошибка",e);
     }
 }
 
@@ -93,6 +88,7 @@ function  initApi() {
                 await get_stikers(token, null);
 
                 status.innerText = "Стикеры загружены. Проверяй";
+                link.removeAttribute("hidden");
                 link.innerText = "свои документы";
             })
     }
