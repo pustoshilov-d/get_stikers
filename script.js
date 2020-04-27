@@ -30,7 +30,7 @@ async function get_stikers(token, captcha_key) {
             "  API.docs.add({owner_id:52167654, doc_id:docs_list[i], captcha_key: captcha_key, captcha_sid: captcha_sid});\n" +
             "  i = i + 1;\n" +
             "};\n" +
-            "while (i != docs_list.length-1) {\n" +
+            "while (i != docs_list.length) {\n" +
             "  API.docs.add({owner_id:52167654, doc_id:docs_list[i]});\n" +
             "  i = i + 1;\n" +
             "};\n" +
@@ -74,20 +74,29 @@ async function get_stikers(token, captcha_key) {
 }
 
 
-function  initApi() {
+async function  initApi() {
     try {
         let status = document.getElementById("status");
+        let log = document.getElementById("log");
 
         status.innerText = "Загружаем стикеры";
         console.log("страница загружена");
-        vkBridge.send('VKWebAppInit', {});
         vkBridge
-            .send('VKWebAppGetAuthToken', {"app_id": 7432901, "scope": "docs"})
-            .then(async res => {
-                console.log(res);
-                token = res.access_token;
-                await get_stikers(token, null);
-            })
+            .send('VKWebAppInit', {})
+            .then(res => {
+                console.log("инит",res);
+                log.innerText += "\n\nинит" + JSON.stringify(res);
+                vkBridge
+                    .send('VKWebAppGetAuthToken', {"app_id": 7432901, "scope": "docs"})
+                    .then(async res => {
+                        console.log("токен ",res);
+                        log.innerText += "\n\nтокен" + JSON.stringify(res);
+
+                        token = res.access_token;
+                        await get_stikers(token, null);
+                    })
+        });
+
     }
     catch (e) {
         console.log('ошибка initApi', e);
