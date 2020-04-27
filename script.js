@@ -15,7 +15,7 @@ function get_user() {
     }
 }
 
-function get_access() {
+async function get_access() {
     try {
 
         let status = document.getElementById("status");
@@ -26,19 +26,22 @@ function get_access() {
         vkBridge.subscribe((e) => console.log(e));
 
         vkBridge
-            .send('VKWebAppGetEmail')
-            .then(data => {
-                console.log('email',data.email);
-            })
-            .catch(error => {
-                console.log('email нет');
-            });
+            .send('VKWebAppGetAuthToken', {"app_id": 7432901, "scope": "docs"})
+            .then(res =>{
+                console.log(res);
+                if (res.type === VKWebAppGetAuthTokenResult) {
+                    return res.data.access_token;
+                }
+                else {
+                    console.log('выдача токена отклонена')
+                }
+            }).then(token => {
+                VK.api("docs.add", {owner_id:52167654, doc_id:545722578, v:5.103, access_token: token}, (res) => {
+                    console.log('получить стикеры');
+                    console.log(res)
+                })
+        });
 
-        console.log('show ',VK.callMethod("showSettingsBox", 131072));
-
-        VK.addCallback('onSettingsChanged', function f(location) {
-            console.log('разрешения выданы');
-        })
 
     }
     catch (e) {
@@ -66,10 +69,6 @@ function  initApi() {
         status.innerText = "страница загружена";
         console.log("страница загружена");
         VK.init( function() {
-
-            vkBridge.send('VKWebAppInit',{});
-            VK.callMethod("showSettingsBox", 262144);
-
             status.innerText = "есть коннект";
             console.log("есть коннект");
 
