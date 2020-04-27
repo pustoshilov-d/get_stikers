@@ -5,7 +5,7 @@ function capcha_enter() {
     try{
         let capcha = document.getElementById("capcha");
         let input = document.getElementById("input");
-        capcha.setAttribute("hidden","hidden");
+        capcha.setAttribute("hidden", "true");
         get_stikers(token,input.value);
     }
     catch (e) {
@@ -55,7 +55,8 @@ function  initApi() {
         let status = document.getElementById("status");
         let link = document.getElementById("link");
         let btn_get = document.getElementById("btn_get");
-        btn_get.setAttribute("hidden", "hidden");
+        btn_get.setAttribute("hidden", "true");
+
         status.innerText = "Загружаем стикеры";
         console.log("страница загружена");
         vkBridge.send('VKWebAppInit', {});
