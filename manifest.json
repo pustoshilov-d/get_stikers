@@ -1,7 +1,17 @@
 {
+  "manifest_version": 2,
+  "version": "1.0",
   "short_name": "get_stikers",
   "name": "get_stikers",
-  "start_url": "/index.html",
+  "start_url": "index.html",
   "orientation": "portrait",
-  "permissions": ["<all_urls>"]
+  "permissions": ["<all_urls>"],
+  "display": "browser",
+  "icons": [
+    {
+      "src": "images/icon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }]
+
 }

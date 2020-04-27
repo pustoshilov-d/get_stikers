@@ -7,18 +7,31 @@
         <meta name="theme-color" content="#000000">
         <meta content="IE=Edge" http-equiv="X-UA-Compatible">
 
-        <link rel="manifest" href="/manifest.json">
-<!--        <link rel="stylesheet" href="style.css">-->
-<!--        <script src="https://vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script>-->
+        <link rel="manifest" href="manifest.json">
+
+        <script
+                src="https://code.jquery.com/jquery-3.4.1.min.js"
+                integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+                crossorigin="anonymous"></script>
+
+
         <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
-        <script src="script.js"></script>
+
+<!--        <script type="module" src="node_modules/core-js/es/map/index.js"> </script>-->
+<!--        <script type="module" src="node_modules/core-js/es/set/index.js"> </script>-->
+
+<!--        <script type="module"> </script>-->
+        <script type="text/javascript">vkBridge.send('VKWebAppInit', {});</script>
+
+        <!--        <link rel="stylesheet" href="style.css">-->
+        <!--        <script src="https://vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script>-->
 
         <title>Стикеры Атмо</title>
     </head>
 
     <body>
-
-        <h2>Hello30</h2>
+        <script type="text/javascript" src="script.js"></script>
+        <h2>Hello32</h2>
 
         <button id="btn_get" onclick="initApi()">Получить стикеры</button>
         <span id="status"></span> <a id="link" href="https://vk.com/docs" target="_blank"></a>

@@ -1,3 +1,6 @@
+import '/core-js/es/map';
+import '/core-js/es/set';
+
 let token = "";
 let captcha_sid = null;
 let captcha_key = null;
@@ -51,10 +54,9 @@ function get_stikers(token, captcha_key) {
 
         img.setAttribute("scr",captcha_img);
 
-
-/////////////
     }
 }
+
 
 
 function  initApi() {
