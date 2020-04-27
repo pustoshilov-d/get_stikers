@@ -1,6 +1,3 @@
-import '/core-js/es/map';
-import '/core-js/es/set';
-
 let token = "";
 let captcha_sid = null;
 let captcha_key = null;
