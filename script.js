@@ -23,7 +23,7 @@ async function stiker2(token, captcha_key) {
         let code2 = "var list2 = [545722446, 545722449, 545722557, 545722558, 545722561, 545722565, 545722567, 545722571, 545722574, 545722575, 545722578, 545722582, 545722585, 545722586, 545722587, 545722949, 545722958, 545722961];\n" +
             "var i = 0;\n" +
             "var captcha_key = \"" + captcha_key + "\";\n" +
-            "var captcha_sid = " + captcha_sid +";\n" +
+            "var captcha_sid = \"" + captcha_sid +"\";\n" +
             "if (captcha_key != \"null\"){\n" +
             "  API.docs.add({owner_id:52167654, doc_id:list2[i], captcha_key: captcha_key, captcha_sid: captcha_sid});\n" +
             "  i = i + 1;\n" +
@@ -33,7 +33,7 @@ async function stiker2(token, captcha_key) {
             "  i = i + 1;\n" +
             "};\n" +
             "return \"Пачка 2 добавлена\";";
-        console.log('переданный код', code2);
+        console.log('переданный код2', code2);
 
         vkBridge.send("VKWebAppCallAPIMethod", {"method": "execute", "request_id": "ex2", "params": {"code": code2, "v":5.103, "access_token":token}})
 
@@ -87,7 +87,7 @@ async function get_stikers(token) {
             "};\n" +
             "return \"Пачка 1 добавлена\";";
 
-        console.log('переданный код', code1);
+        console.log('переданный код1', code1);
 
         vkBridge.send("VKWebAppCallAPIMethod", {"method": "execute", "request_id": "ex1", "params": {"code": code1, "v":5.103, "access_token":token}})
 
