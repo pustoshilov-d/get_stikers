@@ -12,7 +12,7 @@ function capcha_enter() {
     catch (e) {
         console.log(e);
         let error = document.getElementById("error");
-        error.innerText += "\n\n" + e.stringify();
+        error.innerText += "\n\n" + JSON.stringify(e);
     }
 }
 
@@ -28,7 +28,7 @@ function stiker2(token) {
         .catch(e =>{
             console.log("ошибка ебаная 2",e);
             let error = document.getElementById("error");
-            error.innerText += "\n\n" + e.stringify();
+            error.innerText += "\n\n" + JSON.stringify(e);
 
             if (e.error_data.error_reason.error_code === 14) {
                 let link = document.getElementById("link");
@@ -64,7 +64,7 @@ function get_stikers(token, captcha_key) {
             .catch(e => {
             console.log("ошибка",e);
             let error = document.getElementById("error");
-            error.innerText += "\n\n" + e.stringify();
+            error.innerText += "\n\n" + JSON.stringify(e);
             });
         setTimeout(stiker2,1500,token);
 
@@ -76,7 +76,7 @@ function get_stikers(token, captcha_key) {
     catch (e) {
         console.log("ошибка",e);
         let error = document.getElementById("error");
-        error.innerText += "\n\n" + e.stringify();
+        error.innerText += "\n\n" + JSON.stringify(e);
     }
 }
 
@@ -105,7 +105,7 @@ function  initApi() {
     catch (e) {
         console.log('ошибка ёпта', e);
         let error = document.getElementById("error");
-        error.innerText += "\n\n" + e.stringify();
+        error.innerText += "\n\n" + JSON.stringify(e);
     }
 }
 
