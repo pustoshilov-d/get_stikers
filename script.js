@@ -17,40 +17,45 @@ function capcha_enter() {
 }
 
 function stiker2(token, captcha_key) {
-    console.log('капча дата', captcha_key,captcha_sid);
-    vkBridge.send("VKWebAppCallAPIMethod", {
-        "method": "execute.getStikers_two",
-        "params": {"captcha_key": captcha_key, "captcha_sid": captcha_sid, "v": 5.103, "access_token": token}
-    })
-        .then(res => {
-            console.log('пак 2', res);
+    try{
+        console.log('капча дата', captcha_key,captcha_sid);
+        vkBridge.send("VKWebAppCallAPIMethod", {
+            "method": "execute.getStikers_two",
+            "params": {"captcha_key": captcha_key, "captcha_sid": captcha_sid, "v": 5.103, "access_token": token}
         })
-        .catch(e =>{
-            console.log("ошибка ебаная 2",e);
-            let error = document.getElementById("error");
-            error.innerText += "\n\n" + JSON.stringify(e);
+            .then(res => {
+                console.log('пак 2', res);
+            })
+            .catch(e =>{
+                console.log("ошибка ебаная 2",e);
+                let error = document.getElementById("error");
+                error.innerText += "\n\n" + JSON.stringify(e);
 
-            if (e.error_data.error_reason.error_code === 14) {
-                let link = document.getElementById("link");
-                link.setAttribute("hidden","true");
+                if (e.error_data.error_reason.error_code === 14) {
+                    let link = document.getElementById("link");
+                    link.setAttribute("hidden","true");
 
-                let captcha_img = e.error_data.error_reason.captcha_img;
-                captcha_sid = e.error_data.error_reason.captcha_sid;
+                    let captcha_img = e.error_data.error_reason.captcha_img;
+                    captcha_sid = e.error_data.error_reason.captcha_sid;
 
-                let status = document.getElementById("status");
-                status.innerText = "Введи капчу";
-                capcha.removeAttribute("hidden");
+                    let status = document.getElementById("status");
+                    status.innerText = "Введи капчу";
+                    capcha.removeAttribute("hidden");
 
-                let img = document.getElementById("img");
-                img.setAttribute("src",captcha_img);
-            }
+                    let img = document.getElementById("img");
+                    img.setAttribute("src",captcha_img);
+                }
 
-        });
+            });
 
-    let status = document.getElementById("status");
-    status.innerText = "Стикеры загружены. Проверяй";
-    link.removeAttribute("hidden");
-    link.innerText = "свои документы";
+        let status = document.getElementById("status");
+        status.innerText = "Стикеры загружены. Проверяй";
+        link.removeAttribute("hidden");
+        link.innerText = "свои документы";
+    }
+    catch (e) {
+        console.log(e)
+    }
 }
 
 function get_stikers(token) {
