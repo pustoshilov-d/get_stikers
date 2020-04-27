@@ -50,9 +50,7 @@ function get_stikers(token, captcha_key) {
         console.log('капча дата', captcha_key,captcha_sid);
         vkBridge.send("VKWebAppCallAPIMethod", {
             "method": "execute.getStikers",
-            "params": {"v": 5.103, "access_token": token},
-            "captcha_key": captcha_key,
-            "captcha_sid": captcha_sid
+            "params": {"captcha_key": captcha_key, "captcha_sid": captcha_sid, "v": 5.103, "access_token": token}
         })
             .then(res => {
                 console.log('пак 1', res);

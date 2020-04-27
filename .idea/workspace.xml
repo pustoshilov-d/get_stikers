@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b7f8d3d-414d-49d1-91dd-3d2b1ed04cb1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
     </list>
@@ -61,14 +60,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1587920024505</updated>
-      <workItem from="1587920029296" duration="46505000" />
-    </task>
-    <task id="LOCAL-00006" summary="                init">
-      <created>1587923881072</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1587923881072</updated>
+      <workItem from="1587920029296" duration="48118000" />
     </task>
     <task id="LOCAL-00007" summary="                init">
       <created>1587925690020</created>
@@ -406,7 +398,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588015089967</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="init">
+      <created>1588015828219</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1588015828219</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,10 +421,10 @@
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="1170" y="308" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.40.1920.1040@0.40.1920.1040" timestamp="1587939465549" />
-    <state x="396" y="180" key="CommitChangelistDialog2" timestamp="1588015088966">
+    <state x="396" y="180" key="CommitChangelistDialog2" timestamp="1588015827402">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="396" y="180" key="CommitChangelistDialog2/0.40.1920.1040@0.40.1920.1040" timestamp="1588015088966" />
+    <state x="396" y="180" key="CommitChangelistDialog2/0.40.1920.1040@0.40.1920.1040" timestamp="1588015827402" />
     <state x="1220" y="317" key="FileChooserDialogImpl" timestamp="1587935414018">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
