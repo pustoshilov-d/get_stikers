@@ -1,12 +1,13 @@
 {
-  "name": "untitled5",
-  "version": "0.0.0",
+  "name": "get_stikers",
+  "version": "0.0.1",
   "private": true,
+  "homepage": "https://https://pustoshilov-d.github.io/get_stikers/",
   "scripts": {
-    "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www"
+    "start": "node script.js"
   },
   "dependencies": {
-    "@vkontakte/vk-bridge": "^2.1.8"
+    "@vkontakte/vk-bridge": "^2.1.8",
+    "@vkontakte/vk-bridge-mock": "^2.0.3"
   }
 }

@@ -33,7 +33,7 @@ function get_stikers(token, captcha_key) {
             });
     }
     catch (e) {
-        console.log(e)
+        console.log(e);
         //14
         let captcha_img = "";
         captcha_sid = "";
@@ -54,7 +54,7 @@ function  initApi() {
     try {
         let status = document.getElementById("status");
         let link = document.getElementById("link");
-
+        status.innerText= "Загружаем стикеры"
         console.log("страница загружена");
 
         VK.init( function() {
