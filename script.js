@@ -54,28 +54,25 @@ function  initApi() {
     try {
         let status = document.getElementById("status");
         let link = document.getElementById("link");
-        status.innerText= "Загружаем стикеры"
+        let btn_get = document.getElementById("btn_get");
+        btn_get.hidden;
+        status.innerText = "Загружаем стикеры";
         console.log("страница загружена");
+        vkBridge.send('VKWebAppInit', {});
+        vkBridge
+            .send('VKWebAppGetAuthToken', {"app_id": 7432901, "scope": "docs"})
+            .then(async res => {
+                console.log(res);
+                token = res.access_token;
 
-        VK.init( function() {
-            console.log("есть коннект");
-            vkBridge.send('VKWebAppInit',{});
-            vkBridge
-                .send('VKWebAppGetAuthToken', {"app_id": 7432901, "scope": "docs"})
-                .then(async res =>{
-                    console.log(res);
-                    token = res.access_token;
+                await get_stikers(token, null);
 
-                    await get_stikers(token, null);
-
-                    status.innerText = "Стикеры загружены. Проверяй";
-                    link.innerText = "свои документы";
-                })
-
-        }, function() {
-            console.log("нет коннект");
-        }, '5.103');
+                status.innerText = "Стикеры загружены. Проверяй";
+                link.innerText = "свои документы";
+            })
     }
+
+
     catch (e) {
         console.log('ошибка ёпта', e)
     }
