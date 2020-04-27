@@ -17,8 +17,16 @@
 
     <body onload="initApi()">
 
-        <h2>Hello21</h2>
+        <h2>Hello23</h2>
         <span id="status">Загружаем стикеры</span> <a id="link" href="https://vk.com/docs" target="_blank"></a>
+        <div id="capcha" hidden>
+            <img id="img" src="" alt="">
+            <br>
+            <label>
+                <input id="input" type="text" size="20">
+            </label>
+            <button id="btn" onclick="capcha_enter()">ОК</button>
+        </div>
     </body>
 
 </html>

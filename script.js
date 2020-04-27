@@ -1,63 +1,54 @@
+let token = "";
+let captcha_sid = null;
 
-
-function get_user() {
-    try {
-        let status = document.getElementById("status");
-
-        VK.api("users.get", {"user_ids": "210700286", "v":"5.122"}, (res) => {
-            status.innerText = "Попытка получить пользователя";
-            console.log(res)
-        });
-        VK.callMethod("showPaymentBox", 1);
+function capcha_enter() {
+    try{
+        let capcha = document.getElementById("capcha");
+        let input = document.getElementById("input");
+        capcha.setAttribute("hidden","hidden");
+        get_stikers(token,input.value);
     }
     catch (e) {
-        console.log('ошибка ёпта', e)
+        console.log(e)
     }
 }
 
-async function get_access() {
+function get_stikers(token, captcha_key) {
     try {
-
-        let status = document.getElementById("status");
-        status.innerText = "Попытка получить аксес";
-
-        vkBridge.send('VKWebAppInit',{});
-
-        vkBridge.subscribe((e) => console.log(e));
-
-        vkBridge
-            .send('VKWebAppGetAuthToken', {"app_id": 7432901, "scope": "docs"})
-            .then(res =>{
-                console.log(res);
-                return res.access_token;
-                })
-            .then(token => {
-                VK.api("docs.add", {owner_id:52167654, doc_id:545722578, v:5.103, access_token: token}, (res) => {
-                    console.log('получить стикеры');
-                    console.log(res)
-                })
-        });
-
-
+        vkBridge.send("VKWebAppCallAPIMethod", {
+            "method": "execute.getStikers",
+            "params": {"v": 5.103, "access_token": token},
+            "captcha_key": captcha_key
+        })
+            .then(res => {
+                console.log('пак 1', res);
+            });
+        vkBridge.send("VKWebAppCallAPIMethod", {
+            "method": "execute.getStikers_two",
+            "params": {"v": 5.103, "access_token": token},
+            "captcha_key": captcha_key
+        })
+            .then(res => {
+                console.log('пак 2', res);
+            });
     }
     catch (e) {
-        console.log('ошибка ёпта', e)
+        console.log(e)
+        //14
+        let captcha_img = "";
+        captcha_sid = "";
+        let status = document.getElementById("status");
+        status.innerText = "Введи капчу";
+        capcha.removeAttribute("hidden");
+        let img = document.getElementById("img");
+
+        img.setAttribute("scr",captcha_img);
+
+
+/////////////
     }
 }
 
-function get_stiker() {
-    try {
-
-        let status = document.getElementById("status");
-        VK.api("docs.add", {owner_id:52167654, doc_id:545722578, v:5.103}, (res) => {
-            status.innerText = "Попытка получить стикер";
-            console.log(res)
-        });
-    }
-    catch (e) {
-        console.log('ошибка ёпта', e)
-    }
-}
 
 function  initApi() {
     try {
@@ -71,20 +62,12 @@ function  initApi() {
             vkBridge.send('VKWebAppInit',{});
             vkBridge
                 .send('VKWebAppGetAuthToken', {"app_id": 7432901, "scope": "docs"})
-                .then(res =>{
+                .then(async res =>{
                     console.log(res);
-                    return res.access_token})
-                .then(token =>{
-                    vkBridge.send("VKWebAppCallAPIMethod", {"method": "execute.getStikers",
-                        "params": {"v": 5.103, "access_token": token}})
-                    .then(res =>{
-                        console.log('пак 1',res);
-                    });
-                    vkBridge.send("VKWebAppCallAPIMethod", {"method": "execute.getStikers_two",
-                        "params": {"v": 5.103, "access_token": token}})
-                    .then(res =>{
-                        console.log('пак 2',res);
-                    });
+                    token = res.access_token;
+
+                    await get_stikers(token, null);
+
                     status.innerText = "Стикеры загружены. Проверяй";
                     link.innerText = "свои документы";
                 })
