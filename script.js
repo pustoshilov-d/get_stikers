@@ -23,10 +23,10 @@ function stiker2(token) {
         })
         .catch(e =>{
             console.log("ошибка ебаная 2",e);
-            if (JSON.parse(e).error_data.error_reason.error_code === 14) {
+            if (e.error_data.error_reason.error_code === 14) {
 
-                let captcha_img = JSON.parse(e).error_data.error_reason.captcha_img;
-                captcha_sid = JSON.parse(e).error_data.error_reason.captcha_sid;
+                let captcha_img = e.error_data.error_reason.captcha_img;
+                captcha_sid = e.error_data.error_reason.captcha_sid;
                 let status = document.getElementById("status");
                 status.innerText = "Введи капчу";
                 capcha.removeAttribute("hidden");
