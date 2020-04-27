@@ -61,7 +61,7 @@ function  initApi() {
         let status = document.getElementById("status");
         let link = document.getElementById("link");
         let btn_get = document.getElementById("btn_get");
-        btn_get.setAttribute("hidden", "true");
+        // btn_get.setAttribute("hidden", "true");
 
         status.innerText = "Загружаем стикеры";
         console.log("страница загружена");

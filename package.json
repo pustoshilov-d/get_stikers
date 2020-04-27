@@ -8,13 +8,6 @@
   },
   "dependencies": {
     "@vkontakte/vk-bridge": "^2.1.8",
-    "core-js": "^3.6.5",
-    "node-core": "^1.0.6"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.0",
-    "@babel/node": "^7.8.7",
-    "@babel/preset-env": "^7.9.5"
+    "core-js": "^3.6.5"
   }
 }
