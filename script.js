@@ -1,6 +1,5 @@
 let token = "";
 let captcha_sid = null;
-let captcha_key = null;
 
 function capcha_enter() {
     try{
@@ -21,6 +20,24 @@ function stiker2(token) {
     })
         .then(res => {
             console.log('пак 2', res);
+        })
+        .catch(e =>{
+            console.log("ошибка ебаная 2",e);
+            if (JSON.parse(e).error_data.error_reason.error_code === 14) {
+
+                let captcha_img = JSON.parse(e).error_data.error_reason.captcha_img;
+                captcha_sid = JSON.parse(e).error_data.error_reason.captcha_sid;
+                let status = document.getElementById("status");
+                status.innerText = "Введи капчу";
+                capcha.removeAttribute("hidden");
+                let img = document.getElementById("img");
+                img.setAttribute("scr",captcha_img);
+            }
+            else {
+                let status = document.getElementById("status");
+                status.innerText = "Необрабатываемая ошибка :( " + e;
+            }
+
         });
 }
 
@@ -40,7 +57,8 @@ function get_stikers(token, captcha_key) {
         
     }
     catch (e) {
-        console.log(e);
+
+        console.log("ошибка ебаная",e);
         //14
         let captcha_img = "";
         captcha_sid = "";
