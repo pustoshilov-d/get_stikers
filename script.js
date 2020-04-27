@@ -10,12 +10,14 @@ function capcha_enter() {
         input.value = "";
     }
     catch (e) {
-        console.log(e)
+        console.log(e);
+        let error = document.getElementById("error");
+        error.innerText += "\n\n" + e.stringify();
     }
 }
 
 function stiker2(token) {
-    let error = document.getElementById("error");
+
     vkBridge.send("VKWebAppCallAPIMethod", {
         "method": "execute.getStikers_two",
         "params": {"v": 5.103, "access_token": token}
@@ -25,7 +27,8 @@ function stiker2(token) {
         })
         .catch(e =>{
             console.log("ошибка ебаная 2",e);
-            error.innerText=e;
+            let error = document.getElementById("error");
+            error.innerText += "\n\n" + e.stringify();
 
             if (e.error_data.error_reason.error_code === 14) {
                 let link = document.getElementById("link");
@@ -50,8 +53,6 @@ function stiker2(token) {
 
 function get_stikers(token, captcha_key) {
     try {
-        let error = document.getElementById("error");
-
         console.log('капча дата', captcha_key,captcha_sid);
         vkBridge.send("VKWebAppCallAPIMethod", {
             "method": "execute.getStikers",
@@ -62,7 +63,8 @@ function get_stikers(token, captcha_key) {
             })
             .catch(e => {
             console.log("ошибка",e);
-            error.innerText=e;
+            let error = document.getElementById("error");
+            error.innerText += "\n\n" + e.stringify();
             });
         setTimeout(stiker2,1500,token);
 
@@ -73,6 +75,8 @@ function get_stikers(token, captcha_key) {
     }
     catch (e) {
         console.log("ошибка",e);
+        let error = document.getElementById("error");
+        error.innerText += "\n\n" + e.stringify();
     }
 }
 
@@ -101,7 +105,7 @@ function  initApi() {
     catch (e) {
         console.log('ошибка ёпта', e);
         let error = document.getElementById("error");
-        error.innerText = e;
+        error.innerText += "\n\n" + e.stringify();
     }
 }
 
