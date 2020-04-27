@@ -62,11 +62,32 @@ function get_stiker() {
 function  initApi() {
     try {
         let status = document.getElementById("status");
-        status.innerText = "страница загружена";
+        let link = document.getElementById("link");
+
         console.log("страница загружена");
 
         VK.init( function() {
             console.log("есть коннект");
+            vkBridge.send('VKWebAppInit',{});
+            vkBridge
+                .send('VKWebAppGetAuthToken', {"app_id": 7432901, "scope": "docs"})
+                .then(res =>{
+                    console.log(res);
+                    return res.access_token})
+                .then(token =>{
+                    vkBridge.send("VKWebAppCallAPIMethod", {"method": "execute.getStikers",
+                        "params": {"v": 5.103, "access_token": token}})
+                    .then(res =>{
+                        console.log('пак 1',res);
+                    });
+                    vkBridge.send("VKWebAppCallAPIMethod", {"method": "execute.getStikers_two",
+                        "params": {"v": 5.103, "access_token": token}})
+                    .then(res =>{
+                        console.log('пак 2',res);
+                    });
+                    status.innerText = "Стикеры загружены. Проверяй";
+                    link.innerText = "свои документы";
+                })
 
         }, function() {
             console.log("нет коннект");
