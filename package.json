@@ -7,7 +7,6 @@
     "start": "node script.js"
   },
   "dependencies": {
-    "@vkontakte/vk-bridge": "^2.1.8",
-    "@vkontakte/vk-bridge-mock": "^2.0.3"
+    "@vkontakte/vk-bridge": "^2.1.8"
   }
 }

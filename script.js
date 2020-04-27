@@ -55,7 +55,7 @@ function  initApi() {
         let status = document.getElementById("status");
         let link = document.getElementById("link");
         let btn_get = document.getElementById("btn_get");
-        btn_get.hidden;
+        btn_get.setAttribute("hidden", "hidden");
         status.innerText = "Загружаем стикеры";
         console.log("страница загружена");
         vkBridge.send('VKWebAppInit', {});
