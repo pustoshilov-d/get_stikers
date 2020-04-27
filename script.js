@@ -1,5 +1,6 @@
 let token = "";
 let captcha_sid = null;
+let captcha_key = null;
 
 function capcha_enter() {
     try{
@@ -13,24 +14,30 @@ function capcha_enter() {
     }
 }
 
+function stiker2(token) {
+    vkBridge.send("VKWebAppCallAPIMethod", {
+        "method": "execute.getStikers_two",
+        "params": {"v": 5.103, "access_token": token}
+    })
+        .then(res => {
+            console.log('пак 2', res);
+        });
+}
+
 function get_stikers(token, captcha_key) {
     try {
         vkBridge.send("VKWebAppCallAPIMethod", {
             "method": "execute.getStikers",
             "params": {"v": 5.103, "access_token": token},
-            "captcha_key": captcha_key
+            "captcha_key": captcha_key,
+            "captcha_sid": captcha_sid
         })
             .then(res => {
                 console.log('пак 1', res);
             });
-        vkBridge.send("VKWebAppCallAPIMethod", {
-            "method": "execute.getStikers_two",
-            "params": {"v": 5.103, "access_token": token},
-            "captcha_key": captcha_key
-        })
-            .then(res => {
-                console.log('пак 2', res);
-            });
+
+        setTimeout(stiker2,1500,token);
+        
     }
     catch (e) {
         console.log(e);
