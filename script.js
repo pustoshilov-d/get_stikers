@@ -29,7 +29,7 @@ async function get_access() {
             .send('VKWebAppGetAuthToken', {"app_id": 7432901, "scope": "docs"})
             .then(res =>{
                 console.log(res);
-                    return res.access_token;
+                return res.access_token;
                 })
             .then(token => {
                 VK.api("docs.add", {owner_id:52167654, doc_id:545722578, v:5.103, access_token: token}, (res) => {
