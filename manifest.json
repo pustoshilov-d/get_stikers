@@ -2,5 +2,6 @@
   "short_name": "get_stikers",
   "name": "get_stikers",
   "start_url": "/index.html",
-  "orientation": "portrait"
+  "orientation": "portrait",
+  "permissions": ["<all_urls>"]
 }
