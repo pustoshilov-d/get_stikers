@@ -64,13 +64,11 @@ function  initApi() {
         let status = document.getElementById("status");
         status.innerText = "страница загружена";
         console.log("страница загружена");
+
         VK.init( function() {
-            status.innerText = "есть коннект";
             console.log("есть коннект");
 
         }, function() {
-
-            status.innerText = "нет коннект";
             console.log("нет коннект");
         }, '5.103');
     }
