@@ -4,7 +4,6 @@
     <list default="true" id="2b7f8d3d-414d-49d1-91dd-3d2b1ed04cb1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,21 +60,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1587920024505</updated>
-      <workItem from="1587920029296" duration="61282000" />
-    </task>
-    <task id="LOCAL-00020" summary="init">
-      <created>1587938987133</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1587938987133</updated>
-    </task>
-    <task id="LOCAL-00021" summary="init">
-      <created>1587939041971</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1587939041971</updated>
+      <workItem from="1587920029296" duration="61734000" />
     </task>
     <task id="LOCAL-00022" summary="init">
       <created>1587939288187</created>
@@ -406,7 +391,21 @@
       <option name="project" value="LOCAL" />
       <updated>1588029716100</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="init">
+      <created>1588031197710</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1588031197711</updated>
+    </task>
+    <task id="LOCAL-00070" summary="init">
+      <created>1588031411859</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1588031411859</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,10 +421,10 @@
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="1170" y="308" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.40.1920.1040@0.40.1920.1040" timestamp="1587939465549" />
-    <state x="396" y="180" key="CommitChangelistDialog2" timestamp="1588031195805">
+    <state x="396" y="180" key="CommitChangelistDialog2" timestamp="1588031410742">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="396" y="180" key="CommitChangelistDialog2/0.40.1920.1040@0.40.1920.1040" timestamp="1588031195805" />
+    <state x="396" y="180" key="CommitChangelistDialog2/0.40.1920.1040@0.40.1920.1040" timestamp="1588031410742" />
     <state x="1220" y="317" key="FileChooserDialogImpl" timestamp="1587935414018">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>

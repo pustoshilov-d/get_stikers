@@ -49,6 +49,8 @@ async function get_stikers(token, captcha_key) {
             })
             .catch(e => {
                 console.log("ошибка внутри", e);
+                log.innerText += "\n\nтокен" + JSON.stringify(res);
+
                 if (e.error_data.error_reason.error_code === 14) {
 
                     let captcha_img = e.error_data.error_reason.captcha_img;
