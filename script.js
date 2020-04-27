@@ -33,7 +33,7 @@ async function stiker2(token, captcha_key) {
             "  i = i + 1;\n" +
             "};\n" +
             "return \"Пачка 2 добавлена\";";
-
+        console.log('переданный код', code2);
 
         vkBridge.send("VKWebAppCallAPIMethod", {"method": "execute", "request_id": "ex2", "params": {"code": code2, "v":5.103, "access_token":token}})
 
@@ -86,6 +86,8 @@ async function get_stikers(token) {
             "    i = i + 1;\n" +
             "};\n" +
             "return \"Пачка 1 добавлена\";";
+
+        console.log('переданный код', code1);
 
         vkBridge.send("VKWebAppCallAPIMethod", {"method": "execute", "request_id": "ex1", "params": {"code": code1, "v":5.103, "access_token":token}})
 
