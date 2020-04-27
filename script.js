@@ -72,9 +72,10 @@ function  initApi() {
             })
     }
 
-
     catch (e) {
-        console.log('ошибка ёпта', e)
+        console.log('ошибка ёпта', e);
+        let status = document.getElementById("status");
+        status.innerText = "Ошибка :( " + e;
     }
 }
 
