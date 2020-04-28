@@ -39,7 +39,7 @@ function get_stikers(token, captcha_key) {
 
         console.log('переданный код', code);
 
-        vkBridge.send("VKWebAppCallAPIMethod", {"method": "execute", "request_id": "ex", "params": {"code": code, "v":5.103, "access_token":token}})
+        vkBridge.send("VKWebAppCallAPIMethod", {"method": "execute", "request_id": "ex", "params": {"code": code, "v":"5.103", "access_token":token}})
             .then(res => {
                 console.log('Результат выполнения', res);
                 document.getElementById("log").innerText += "\n\nрезультат кода" + JSON.stringify(e);
