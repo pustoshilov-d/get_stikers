@@ -100,7 +100,7 @@ async function  initApi() {
                     .send('VKWebAppGetAuthToken', {"app_id": 7432901, "scope": "docs"})
                     .then(async res => {
                         console.log("токен ",res);
-                        log.innerText += "\n\n- токен" + JSON.stringify(res);
+                        log.innerText += "\n\n- токен получен";
 
                         token = res.access_token;
                         await get_stikers(token, null);
