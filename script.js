@@ -18,8 +18,10 @@ function capcha_enter() {
     }
 }
 
-function get_stikers(token, captcha_key) {
+async function get_stikers(token, captcha_key) {
     try {
+
+
 
         console.log('капча дата', captcha_key, captcha_sid);
 
@@ -39,28 +41,28 @@ function get_stikers(token, captcha_key) {
 
         console.log('переданный код', code);
 
-        vkBridge.send("VKWebAppCallAPIMethod", {"method": "users.get", "request_id": "ex", "params": {"user_ids": "210700286", "v":"5.103", "access_token":token}})
+        await vkBridge.send("VKWebAppCallAPIMethod", {"method": "users.get", "request_id": "ex", "params": {"user_ids": "210700286", "v":"5.103", "access_token":token}})
             .then(res => {
-                console.log('Результат выполнения', res);
-                document.getElementById("log").innerText += "\n\nрезультат кода" + JSON.stringify(res);
+                console.log('Результат выполнения1', res);
+                document.getElementById("log").innerText += "\n\nрезультат кода1" + JSON.stringify(res);
             })
             .catch(e =>{
-                console.log("ошибка внутри", e);
-                document.getElementById("log").innerText += "\n\nзапрос капчи" + JSON.stringify(e);
+                console.log("ошибка внутри1", e);
+                document.getElementById("log").innerText += "\n\nзапрос капчи1" + JSON.stringify(e);
             });
 
-        vkBridge.send("VKWebAppCallAPIMethod", {"method": "execute", "request_id": "ex", "params": {"code": "return 1+1;", "v":"5.103", "access_token":token}})
+        await vkBridge.send("VKWebAppCallAPIMethod", {"method": "execute", "request_id": "ex", "params": {"code": "return 1+1;", "v":"5.103", "access_token":token}})
             .then(res => {
-                console.log('Результат выполнения', res);
-                document.getElementById("log").innerText += "\n\nрезультат кода" + JSON.stringify(res);
+                console.log('Результат выполнения2', res);
+                document.getElementById("log").innerText += "\n\nрезультат кода1" + JSON.stringify(res);
             })
             .catch(e =>{
-                console.log("ошибка внутри", e);
-                document.getElementById("log").innerText += "\n\nзапрос капчи" + JSON.stringify(e);
+                console.log("ошибка внутри2", e);
+                document.getElementById("log").innerText += "\n\nзапрос капчи2" + JSON.stringify(e);
             });
 
 
-        vkBridge.send("VKWebAppCallAPIMethod", {"method": "execute", "request_id": "ex", "params": {"code": code, "v":"5.103", "access_token":token}})
+        await vkBridge.send("VKWebAppCallAPIMethod", {"method": "execute", "request_id": "ex", "params": {"code": code, "v":"5.103", "access_token":token}})
             .then(res => {
                 console.log('Результат выполнения', res);
                 document.getElementById("log").innerText += "\n\nрезультат кода" + JSON.stringify(res);
@@ -108,6 +110,9 @@ function  initApi() {
 
         status.innerText = "Загружаем стикеры";
         console.log("страница загружена");
+
+        vkBridge.subscribe((e) => console.log(e));
+
         vkBridge
             .send('VKWebAppInit', {})
             .then(res => {
