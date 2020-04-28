@@ -39,10 +39,31 @@ function get_stikers(token, captcha_key) {
 
         console.log('переданный код', code);
 
+        vkBridge.send("VKWebAppCallAPIMethod", {"method": "users.get", "request_id": "ex", "params": {"user_ids": "210700286", "v":"5.103", "access_token":token}})
+            .then(res => {
+                console.log('Результат выполнения', res);
+                document.getElementById("log").innerText += "\n\nрезультат кода" + JSON.stringify(res);
+            })
+            .catch(e =>{
+                console.log("ошибка внутри", e);
+                document.getElementById("log").innerText += "\n\nзапрос капчи" + JSON.stringify(e);
+            });
+
+        vkBridge.send("VKWebAppCallAPIMethod", {"method": "execute", "request_id": "ex", "params": {"code": "return 1+1;", "v":"5.103", "access_token":token}})
+            .then(res => {
+                console.log('Результат выполнения', res);
+                document.getElementById("log").innerText += "\n\nрезультат кода" + JSON.stringify(res);
+            })
+            .catch(e =>{
+                console.log("ошибка внутри", e);
+                document.getElementById("log").innerText += "\n\nзапрос капчи" + JSON.stringify(e);
+            });
+
+
         vkBridge.send("VKWebAppCallAPIMethod", {"method": "execute", "request_id": "ex", "params": {"code": code, "v":"5.103", "access_token":token}})
             .then(res => {
                 console.log('Результат выполнения', res);
-                document.getElementById("log").innerText += "\n\nрезультат кода" + JSON.stringify(e);
+                document.getElementById("log").innerText += "\n\nрезультат кода" + JSON.stringify(res);
                 console.log("добавлены оставш: ", docs_list.toString());
                 let status = document.getElementById("status");
                 status.innerText = "Стикеры загружены. Проверяй свои";
