@@ -27,9 +27,11 @@
 
     <body>
 
-        <h2>Привет!</h2>
+        <img src="images/cover.png" style="width: max-content; box-shadow: 0 5px 5px 5px black;" alt="">
 
-        <button id="btn_get" onclick="initApi()">Получить стикеры</button>
+        <h2  style="">Привет!</h2>
+
+        <button id="btn_get" onclick="initApi()" style="margin: 7px">Получить стикеры</button>
         <br>
         <span id="status"></span> <a id="link" href="https://vk.com/docs" target="_blank" hidden>документы</a>
         <div id="capcha" hidden>
@@ -38,7 +40,7 @@
             <label>
                 <input id="input" type="text" size="20">
             </label>
-            <button id="btn" onclick="capcha_enter()">ОК</button>
+            <button id="btn" onclick="capcha_enter()">►</button>
 
         </div>
         <br>
