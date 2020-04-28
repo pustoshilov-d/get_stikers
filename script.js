@@ -14,6 +14,7 @@ function capcha_enter() {
     }
     catch (e) {
         console.log('Ошибка в capcha_enter',e);
+        document.getElementById("log").innerText += "\n\nошибка capcha_enter" + JSON.stringify(e);
     }
 }
 
@@ -43,15 +44,17 @@ async function get_stikers(token, captcha_key) {
                 console.log('Результат выполнения', res);
                 console.log("добавлены оставш: ", docs_list.toString());
                 let status = document.getElementById("status");
-                status.innerText = "Стикеры загружены. Проверяй";
+                status.innerText = "Стикеры загружены. Проверяй свои";
+                let link = document.getElementById("link");
                 link.removeAttribute("hidden");
-                link.innerText = "свои документы";
             })
             .catch(e => {
                 console.log("ошибка внутри", e);
-                log.innerText += "\n\nзапрос капчи" + JSON.stringify(e);
+                document.getElementById("log").innerText += "\n\nзапрос капчи" + JSON.stringify(e);
 
                 if (e.error_data.error_reason.error_code === 14) {
+
+                    let capcha = document.getElementById("capcha");
 
                     let captcha_img = e.error_data.error_reason.captcha_img;
                     captcha_sid = e.error_data.error_reason.captcha_sid;
@@ -72,9 +75,9 @@ async function get_stikers(token, captcha_key) {
     }
     catch (e) {
         console.log("ошибка get_stikers",e);
+        document.getElementById("log").innerText += "\n\nошибка get_stikers" + JSON.stringify(e);
     }
 }
-
 
 async function  initApi() {
     try {
@@ -98,10 +101,10 @@ async function  initApi() {
                         await get_stikers(token, null);
                     })
         });
-
     }
     catch (e) {
         console.log('ошибка initApi', e);
+        document.getElementById("log").innerText += "\n\nошибка initApi" + JSON.stringify(e);
     }
 }
 
