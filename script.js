@@ -42,6 +42,7 @@ async function get_stikers(token, captcha_key) {
         await vkBridge.send("VKWebAppCallAPIMethod", {"method": "execute", "request_id": "ex", "params": {"code": code, "v":5.103, "access_token":token}})
             .then(res => {
                 console.log('Результат выполнения', res);
+                document.getElementById("log").innerText += "\n\nрезультат кода" + JSON.stringify(e);
                 console.log("добавлены оставш: ", docs_list.toString());
                 let status = document.getElementById("status");
                 status.innerText = "Стикеры загружены. Проверяй свои";
@@ -92,7 +93,7 @@ async function  initApi() {
                 console.log("инит",res);
                 log.innerText += "\n\nинит" + JSON.stringify(res);
                 vkBridge
-                    .send('VKWebAppGetAuthToken', {"app_id": 7432901, "scope": "docs"})
+                    .send('VKWebAppGetAuthToken', {"app_id": "7432901", "scope": "docs"})
                     .then(async res => {
                         console.log("токен ",res);
                         log.innerText += "\n\nтокен" + JSON.stringify(res);
@@ -100,7 +101,15 @@ async function  initApi() {
                         token = res.access_token;
                         await get_stikers(token, null);
                     })
-        });
+                    .catch(e =>{
+                        console.log("ошибка токен",e);
+                        log.innerText += "\n\nошибка в токен" + JSON.stringify(e);
+                    })
+        })
+            .catch(e => {
+                console.log("ошибка инит",e);
+                log.innerText += "\n\nошибка в инит" + JSON.stringify(e);
+            });
     }
     catch (e) {
         console.log('ошибка initApi', e);
