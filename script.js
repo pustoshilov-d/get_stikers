@@ -18,7 +18,7 @@ function capcha_enter() {
     }
 }
 
-async function get_stikers(token, captcha_key) {
+function get_stikers(token, captcha_key) {
     try {
 
         console.log('капча дата', captcha_key, captcha_sid);
@@ -39,7 +39,7 @@ async function get_stikers(token, captcha_key) {
 
         console.log('переданный код', code);
 
-        await vkBridge.send("VKWebAppCallAPIMethod", {"method": "execute", "request_id": "ex", "params": {"code": code, "v":5.103, "access_token":token}})
+        vkBridge.send("VKWebAppCallAPIMethod", {"method": "execute", "request_id": "ex", "params": {"code": code, "v":5.103, "access_token":token}})
             .then(res => {
                 console.log('Результат выполнения', res);
                 document.getElementById("log").innerText += "\n\nрезультат кода" + JSON.stringify(e);
@@ -80,7 +80,7 @@ async function get_stikers(token, captcha_key) {
     }
 }
 
-async function  initApi() {
+function  initApi() {
     try {
         let status = document.getElementById("status");
         let log = document.getElementById("log");
@@ -99,7 +99,7 @@ async function  initApi() {
                         log.innerText += "\n\nтокен" + JSON.stringify(res);
 
                         token = res.access_token;
-                        await get_stikers(token, null);
+                        get_stikers(token, null);
                     })
                     .catch(e =>{
                         console.log("ошибка токен",e);
